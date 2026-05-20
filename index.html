@@ -745,7 +745,7 @@
         el.addEventListener("click", function () {
           window.va("event", {
             name: "buy_book_click",
-            placement: el.dataset.placement || "unknown",
+            data: { placement: el.dataset.placement || "unknown" },
           });
         });
       });
