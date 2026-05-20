@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#fbf3e8" />
+    <title>HistoireDuDodo — Tous les liens</title>
+    <meta
+      name="description"
+      content="Ton enfant est le héros de son histoire du soir. Découvre le livre, reçois ta 1ère histoire gratuite et suis HistoireDuDodo sur TikTok."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="HistoireDuDodo — Tous les liens" />
+    <meta
+      property="og:description"
+      content="Ton enfant est le héros de son histoire du soir ✨ 1ère histoire gratuite."
+    />
+    <meta property="og:image" content="assets/cover.svg" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --cream: #fbf3e8;
+        --cream-2: #f4e6d2;
+        --ink: #2b2a26;
+        --muted: #6a6358;
+        --gold: #e8a83a;
+        --gold-deep: #c98a1f;
+        --rose: #e7b9b1;
+        --sage: #b9c9a8;
+        --card: #ffffff;
+        --shadow: 0 10px 30px rgba(60, 40, 10, 0.08),
+          0 2px 6px rgba(60, 40, 10, 0.04);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        min-height: 100dvh;
+        background:
+          radial-gradient(
+            1200px 600px at 50% -200px,
+            #fff7ec 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            800px 500px at 100% 110%,
+            #f6e2d2 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 600px at 0% 100%,
+            #eef0e2 0%,
+            transparent 60%
+          ),
+          var(--cream);
+      }
+
+      .stars {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.5;
+        z-index: 0;
+      }
+      .stars span {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: radial-gradient(
+          circle,
+          rgba(232, 168, 58, 0.9) 0%,
+          rgba(232, 168, 58, 0) 70%
+        );
+        border-radius: 50%;
+        animation: twinkle 4s infinite ease-in-out;
+      }
+      .stars span:nth-child(1) { top: 8%; left: 12%; animation-delay: 0s; }
+      .stars span:nth-child(2) { top: 14%; right: 10%; animation-delay: 0.6s; width: 4px; height: 4px; }
+      .stars span:nth-child(3) { top: 30%; left: 6%; animation-delay: 1.2s; width: 5px; height: 5px; }
+      .stars span:nth-child(4) { top: 70%; right: 8%; animation-delay: 1.8s; }
+      .stars span:nth-child(5) { bottom: 12%; left: 14%; animation-delay: 2.4s; width: 4px; height: 4px; }
+      .stars span:nth-child(6) { top: 50%; right: 16%; animation-delay: 3s; width: 3px; height: 3px; }
+
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.2; transform: scale(0.8); }
+        50% { opacity: 1; transform: scale(1.1); }
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 460px;
+        margin: 0 auto;
+        padding: 36px 20px 60px;
+      }
+
+      header {
+        text-align: center;
+      }
+
+      .avatar {
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 30% 30%, #fff, #f3e7d3 70%, #e7d4b6);
+        margin: 0 auto 14px;
+        display: grid;
+        place-items: center;
+        box-shadow: var(--shadow);
+        border: 3px solid #fff;
+        position: relative;
+        overflow: hidden;
+      }
+      .avatar svg {
+        width: 88%;
+        height: 88%;
+      }
+
+      .name {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 600;
+        font-size: 26px;
+        margin: 6px 0 2px;
+        letter-spacing: -0.01em;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .verified {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: var(--gold);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 11px;
+        line-height: 18px;
+        text-align: center;
+        font-weight: 700;
+        font-family: "Nunito", sans-serif;
+      }
+      .handle {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 14px;
+      }
+      .bio {
+        font-size: 15.5px;
+        line-height: 1.5;
+        color: var(--ink);
+        max-width: 360px;
+        margin: 0 auto 6px;
+      }
+      .bio .sparkle {
+        color: var(--gold-deep);
+      }
+
+      .stats {
+        display: inline-flex;
+        gap: 18px;
+        margin: 14px auto 22px;
+        padding: 10px 16px;
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(6px);
+        border-radius: 999px;
+        border: 1px solid rgba(201, 138, 31, 0.15);
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .stats b {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 6px;
+      }
+
+      .link {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 18px;
+        background: var(--card);
+        color: var(--ink);
+        text-decoration: none;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(60, 40, 10, 0.04);
+        transition: transform 0.15s ease, box-shadow 0.15s ease,
+          background 0.15s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .link:hover,
+      .link:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 34px rgba(60, 40, 10, 0.12),
+          0 4px 10px rgba(60, 40, 10, 0.05);
+        outline: none;
+      }
+      .link:active {
+        transform: translateY(0);
+      }
+
+      .link .icon {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: var(--cream-2);
+        color: var(--gold-deep);
+      }
+      .link .icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .link .label {
+        font-weight: 700;
+        font-size: 15.5px;
+        line-height: 1.25;
+        flex: 1;
+      }
+      .link .label small {
+        display: block;
+        font-weight: 400;
+        font-size: 12.5px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .link .chev {
+        color: var(--muted);
+        opacity: 0.6;
+        flex-shrink: 0;
+      }
+
+      /* Primary highlighted link (book) */
+      .link.primary {
+        background: linear-gradient(135deg, #fff5dc 0%, #ffd98a 100%);
+        border: 1px solid rgba(201, 138, 31, 0.3);
+      }
+      .link.primary .icon {
+        background: var(--gold);
+        color: #fff;
+      }
+      .link.primary .badge {
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 10.5px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        padding: 3px 8px;
+        border-radius: 999px;
+        text-transform: uppercase;
+      }
+      .link.primary .label small {
+        color: #5b4a26;
+      }
+
+      /* Featured book card */
+      .book {
+        margin: 20px 0 8px;
+        background: var(--card);
+        border-radius: 22px;
+        padding: 18px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(60, 40, 10, 0.04);
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+        overflow: hidden;
+      }
+      .book::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 217, 138, 0.15),
+          transparent 50%
+        );
+        pointer-events: none;
+      }
+      .book-cover {
+        width: 86px;
+        height: 116px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        background:
+          linear-gradient(160deg, #fff7e6, #f3e2c1 60%, #e7caa0);
+        box-shadow:
+          inset -8px 0 14px rgba(0, 0, 0, 0.06),
+          0 6px 14px rgba(60, 40, 10, 0.18);
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .book-cover::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(0, 0, 0, 0.08);
+      }
+      .book-cover svg {
+        width: 70%;
+        height: 70%;
+      }
+      .book-info h3 {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 600;
+        margin: 0 0 4px;
+        font-size: 17px;
+        line-height: 1.2;
+      }
+      .book-info p {
+        margin: 0 0 10px;
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.35;
+      }
+      .book-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--ink);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 8px 12px;
+        border-radius: 999px;
+        text-decoration: none;
+      }
+
+      .section-title {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        margin: 22px 4px 10px;
+        font-weight: 700;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 28px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+      footer a {
+        color: var(--gold-deep);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .stars span {
+          animation: none;
+        }
+        .link {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars" aria-hidden="true">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
+    <main class="wrap">
+      <header>
+        <div class="avatar" aria-hidden="true">
+          <!-- Elephant mascot SVG -->
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- ears -->
+            <ellipse cx="22" cy="46" rx="14" ry="18" fill="#b8b0a3" />
+            <ellipse cx="78" cy="46" rx="14" ry="18" fill="#b8b0a3" />
+            <ellipse cx="22" cy="46" rx="9" ry="13" fill="#e7b9b1" opacity=".7" />
+            <ellipse cx="78" cy="46" rx="9" ry="13" fill="#e7b9b1" opacity=".7" />
+            <!-- head -->
+            <ellipse cx="50" cy="50" rx="28" ry="26" fill="#c9c2b5" />
+            <!-- trunk -->
+            <path
+              d="M50 62 Q42 78 50 86 Q58 92 60 82"
+              stroke="#c9c2b5"
+              stroke-width="10"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <!-- scarf -->
+            <path d="M28 70 Q50 80 72 70 L72 76 Q50 86 28 76 Z" fill="#e8a83a" />
+            <!-- eyes -->
+            <circle cx="40" cy="48" r="2.5" fill="#2b2a26" />
+            <circle cx="60" cy="48" r="2.5" fill="#2b2a26" />
+            <!-- cheeks -->
+            <circle cx="36" cy="56" r="3" fill="#e7b9b1" opacity=".6" />
+            <circle cx="64" cy="56" r="3" fill="#e7b9b1" opacity=".6" />
+            <!-- heart -->
+            <path
+              d="M70 58 a3 3 0 0 1 6 0 a3 3 0 0 1 6 0 c0 4 -6 8 -6 8 s-6 -4 -6 -8z"
+              fill="#e7686e"
+            />
+          </svg>
+        </div>
+        <h1 class="name">
+          HistoireDuDodo <span class="verified" title="Compte vérifié">✓</span>
+        </h1>
+        <div class="handle">@histoiredudodo</div>
+        <p class="bio">
+          Ton enfant est le héros de son histoire du soir
+          <span class="sparkle">✨</span><br />
+          1ère histoire gratuite 👇
+        </p>
+        <div class="stats" aria-label="Statistiques TikTok">
+          <span><b>27,7 K</b> Followers</span>
+          <span><b>183 K</b> J'aime</span>
+        </div>
+      </header>
+
+      <!-- Featured book -->
+      <a
+        class="book"
+        href="https://amzn.eu/d/06Nj7w1y"
+        target="_blank"
+        rel="noopener"
+      >
+        <div class="book-cover" aria-hidden="true">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="22" cy="46" rx="14" ry="18" fill="#b8b0a3" />
+            <ellipse cx="78" cy="46" rx="14" ry="18" fill="#b8b0a3" />
+            <ellipse cx="50" cy="50" rx="28" ry="26" fill="#c9c2b5" />
+            <path
+              d="M50 62 Q42 78 50 86 Q58 92 60 82"
+              stroke="#c9c2b5"
+              stroke-width="10"
+              fill="none"
+              stroke-linecap="round"
+            />
+            <circle cx="40" cy="48" r="2.5" fill="#2b2a26" />
+            <circle cx="60" cy="48" r="2.5" fill="#2b2a26" />
+          </svg>
+        </div>
+        <div class="book-info">
+          <h3>Le livre HistoireDuDodo</h3>
+          <p>
+            Des histoires douces pour endormir ton enfant en héros de son
+            propre conte.
+          </p>
+          <span class="book-cta">
+            Découvrir sur Amazon
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <div class="section-title">Tous les liens</div>
+
+      <nav class="links" aria-label="Liens utiles">
+        <a
+          class="link primary"
+          href="https://amzn.eu/d/06Nj7w1y"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="badge">★ Best-seller</span>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>
+          </span>
+          <span class="label">
+            📕 Commande le livre sur Amazon
+            <small>L'histoire du soir, version papier à offrir</small>
+          </span>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+
+        <a
+          class="link"
+          href="https://histoiredudodo.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 12v9H4v-9" />
+              <path d="M22 7H2l4-5h12l4 5z" />
+              <path d="M12 22V7" />
+            </svg>
+          </span>
+          <span class="label">
+            🎁 Reçois ta 1ère histoire gratuite
+            <small>histoiredudodo.com</small>
+          </span>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+
+        <a
+          class="link"
+          href="https://histoiredudodo.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          </span>
+          <span class="label">
+            🌙 Personnalise une histoire
+            <small>Ton enfant devient le héros</small>
+          </span>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+
+        <a
+          class="link"
+          href="https://www.tiktok.com/@histoiredudodo"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16.6 5.82a4.28 4.28 0 0 1-1.05-2.82h-3.1v12.55a2.6 2.6 0 0 1-2.6 2.6 2.6 2.6 0 0 1-2.6-2.6 2.6 2.6 0 0 1 2.6-2.6c.27 0 .53.05.78.14V9.95a5.74 5.74 0 1 0 4.92 5.68V9.46a7.39 7.39 0 0 0 4.3 1.38V7.74a4.32 4.32 0 0 1-3.25-1.92z" />
+            </svg>
+          </span>
+          <span class="label">
+            🎵 Suis-moi sur TikTok
+            <small>@histoiredudodo · 27,7K followers</small>
+          </span>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+
+        <a
+          class="link"
+          href="https://histoiredudodo.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+          </span>
+          <span class="label">
+            🛍️ La boutique
+            <small>Livres, kits & histoires à offrir</small>
+          </span>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+
+        <a
+          class="link"
+          href="mailto:contact@histoiredudodo.com"
+        >
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </span>
+          <span class="label">
+            💌 Contact & collaborations
+            <small>contact@histoiredudodo.com</small>
+          </span>
+          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </a>
+      </nav>
+
+      <footer>
+        Fait avec 🤎 pour les parents — &copy; HistoireDuDodo
+      </footer>
+    </main>
+  </body>
+</html>

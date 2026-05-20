@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#fff7ec" />
+      <stop offset="60%" stop-color="#f6e2d2" />
+      <stop offset="100%" stop-color="#e7caa0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)" />
+  <g transform="translate(600 315)">
+    <g transform="translate(-150 -150) scale(3)">
+      <ellipse cx="22" cy="46" rx="14" ry="18" fill="#b8b0a3" />
+      <ellipse cx="78" cy="46" rx="14" ry="18" fill="#b8b0a3" />
+      <ellipse cx="50" cy="50" rx="28" ry="26" fill="#c9c2b5" />
+      <path d="M50 62 Q42 78 50 86 Q58 92 60 82" stroke="#c9c2b5" stroke-width="10" fill="none" stroke-linecap="round" />
+      <path d="M28 70 Q50 80 72 70 L72 76 Q50 86 28 76 Z" fill="#e8a83a" />
+      <circle cx="40" cy="48" r="2.5" fill="#2b2a26" />
+      <circle cx="60" cy="48" r="2.5" fill="#2b2a26" />
+    </g>
+  </g>
+  <text x="600" y="540" text-anchor="middle" font-family="Georgia, serif" font-size="48" fill="#2b2a26" font-weight="600">HistoireDuDodo</text>
+  <text x="600" y="585" text-anchor="middle" font-family="Helvetica, sans-serif" font-size="22" fill="#6a6358">Ton enfant est le héros de son histoire du soir</text>
+</svg>
