@@ -26,6 +26,14 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
     <!-- Vercel Analytics + Speed Insights (only fires when deployed on Vercel) -->
+    <script>
+      // Queue events before the analytics script loads
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
+    </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -582,6 +590,8 @@
         href="https://amzn.eu/d/06Nj7w1y"
         target="_blank"
         rel="noopener"
+        data-track="buy_book_click"
+        data-placement="featured_card"
       >
         <div class="book-cover">
           <img
@@ -652,6 +662,8 @@
           href="https://amzn.eu/d/06Nj7w1y"
           target="_blank"
           rel="noopener"
+          data-track="buy_book_click"
+          data-placement="primary_cta"
         >
           <span class="badge">✨ Nouveauté</span>
           <span class="icon" aria-hidden="true">
@@ -677,6 +689,8 @@
           href="https://amzn.eu/d/06Nj7w1y"
           target="_blank"
           rel="noopener"
+          data-track="buy_book_click"
+          data-placement="gift_cta"
         >
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -724,5 +738,17 @@
         Fait avec 🤎 pour les parents — &copy; HistoireDuDodo
       </footer>
     </main>
+
+    <script>
+      // Track Amazon buy clicks per placement
+      document.querySelectorAll('[data-track="buy_book_click"]').forEach(function (el) {
+        el.addEventListener("click", function () {
+          window.va("event", {
+            name: "buy_book_click",
+            placement: el.dataset.placement || "unknown",
+          });
+        });
+      });
+    </script>
   </body>
 </html>
