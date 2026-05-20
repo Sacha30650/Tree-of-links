@@ -4,18 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#fbf3e8" />
-    <title>HistoireDuDodo — Tous les liens</title>
+    <title>HistoireDuDodo — Lila et la clé du grenier</title>
     <meta
       name="description"
-      content="Ton enfant est le héros de son histoire du soir. Découvre le livre HistoireDuDodo sur Amazon."
+      content="Lila et la clé du grenier — un conte tendre et lumineux d'Apolline Verger, pour les rêveurs de 6 à 8 ans. Disponible sur Amazon."
     />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="HistoireDuDodo — Tous les liens" />
+    <meta property="og:title" content="Lila et la clé du grenier — HistoireDuDodo" />
     <meta
       property="og:description"
-      content="Ton enfant est le héros de son histoire du soir ✨ Découvre le livre sur Amazon."
+      content="Un conte tendre et lumineux pour les rêveurs de 6 à 8 ans ✨ Cinq mondes à découvrir."
     />
     <meta property="og:image" content="assets/cover.svg" />
 
@@ -319,19 +319,16 @@
         pointer-events: none;
       }
       .book-cover {
-        width: 86px;
-        height: 116px;
+        width: 92px;
+        height: 124px;
         flex-shrink: 0;
         border-radius: 8px;
-        background:
-          linear-gradient(160deg, #fff7e6, #f3e2c1 60%, #e7caa0);
         box-shadow:
-          inset -8px 0 14px rgba(0, 0, 0, 0.06),
+          inset -8px 0 14px rgba(0, 0, 0, 0.08),
           0 6px 14px rgba(60, 40, 10, 0.18);
-        display: grid;
-        place-items: center;
         position: relative;
         overflow: hidden;
+        z-index: 1;
       }
       .book-cover::before {
         content: "";
@@ -340,24 +337,81 @@
         top: 0;
         bottom: 0;
         width: 2px;
-        background: rgba(0, 0, 0, 0.08);
+        background: rgba(0, 0, 0, 0.12);
+        z-index: 2;
       }
       .book-cover svg {
-        width: 70%;
-        height: 70%;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .book-info {
+        flex: 1;
+        min-width: 0;
       }
       .book-info h3 {
         font-family: "Fraunces", Georgia, serif;
         font-weight: 600;
-        margin: 0 0 4px;
+        margin: 0 0 2px;
         font-size: 17px;
-        line-height: 1.2;
+        line-height: 1.15;
       }
-      .book-info p {
-        margin: 0 0 10px;
-        font-size: 13px;
+      .book-info .book-sub {
+        margin: 0 0 4px;
+        font-size: 12.5px;
         color: var(--muted);
-        line-height: 1.35;
+        font-style: italic;
+        line-height: 1.3;
+      }
+      .book-info .book-author {
+        margin: 0 0 8px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.3;
+      }
+      .book-meta {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+      }
+      .stars-rating {
+        color: var(--gold);
+        letter-spacing: 1px;
+        font-size: 12px;
+      }
+      .stars-rating small {
+        color: var(--ink);
+        font-weight: 700;
+        margin-left: 3px;
+        letter-spacing: 0;
+      }
+      .book-meta .dot {
+        color: var(--muted);
+        opacity: 0.5;
+      }
+      .book-meta .age {
+        background: var(--cream-2);
+        color: var(--ink);
+        font-weight: 700;
+        font-size: 11px;
+        padding: 2px 8px;
+        border-radius: 999px;
+      }
+      .book-price-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .book-price-row .price {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--ink);
       }
       .book-cta {
         display: inline-flex;
@@ -370,6 +424,58 @@
         padding: 8px 12px;
         border-radius: 999px;
         text-decoration: none;
+      }
+
+      /* Five worlds */
+      .worlds {
+        margin: 18px 0 4px;
+        padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(201, 138, 31, 0.18);
+        border-radius: var(--radius);
+      }
+      .worlds-intro {
+        margin: 0 0 12px;
+        font-size: 14.5px;
+        color: var(--ink);
+        text-align: center;
+        line-height: 1.4;
+      }
+      .worlds-list {
+        list-style: none;
+        margin: 0 0 12px;
+        padding: 0;
+        display: grid;
+        gap: 6px;
+      }
+      .worlds-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: var(--ink);
+        padding: 4px 0;
+      }
+      .worlds-list li span {
+        font-size: 18px;
+        width: 26px;
+        text-align: center;
+      }
+      .worlds-quote {
+        margin: 0;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 14px;
+        font-style: italic;
+        color: var(--muted);
+        text-align: center;
+        line-height: 1.45;
+        padding-top: 10px;
+        border-top: 1px dashed rgba(201, 138, 31, 0.2);
+      }
+      .worlds-quote em {
+        color: var(--gold-deep);
+        font-style: italic;
       }
 
       .section-title {
@@ -451,7 +557,7 @@
         <p class="bio">
           Ton enfant est le héros de son histoire du soir
           <span class="sparkle">✨</span><br />
-          Découvre le livre 👇
+          Découvre <em>Lila et la clé du grenier</em> 👇
         </p>
         <div class="stats" aria-label="Statistiques TikTok">
           <span><b>27,7 K</b> Followers</span>
@@ -467,45 +573,95 @@
         rel="noopener"
       >
         <div class="book-cover" aria-hidden="true">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="22" cy="46" rx="14" ry="18" fill="#b8b0a3" />
-            <ellipse cx="78" cy="46" rx="14" ry="18" fill="#b8b0a3" />
-            <ellipse cx="50" cy="50" rx="28" ry="26" fill="#c9c2b5" />
-            <path
-              d="M50 62 Q42 78 50 86 Q58 92 60 82"
-              stroke="#c9c2b5"
-              stroke-width="10"
-              fill="none"
-              stroke-linecap="round"
-            />
-            <circle cx="40" cy="48" r="2.5" fill="#2b2a26" />
-            <circle cx="60" cy="48" r="2.5" fill="#2b2a26" />
+          <svg viewBox="0 0 100 134" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="bgWash" cx="50%" cy="40%" r="70%">
+                <stop offset="0%" stop-color="#fff2dc" />
+                <stop offset="55%" stop-color="#f3c98f" />
+                <stop offset="100%" stop-color="#c98a4a" />
+              </radialGradient>
+            </defs>
+            <rect width="100" height="134" fill="url(#bgWash)" />
+            <!-- door light -->
+            <rect x="34" y="50" width="22" height="50" rx="3" fill="#fff7e0" opacity=".8" />
+            <rect x="36" y="52" width="18" height="46" rx="2" fill="#f9d68a" opacity=".7" />
+            <!-- girl silhouette -->
+            <ellipse cx="50" cy="70" rx="8" ry="4" fill="#6b5840" opacity=".25" />
+            <circle cx="50" cy="62" r="5" fill="#4a3a28" />
+            <rect x="45" y="66" width="10" height="20" rx="3" fill="#5d7aa8" />
+            <rect x="45" y="86" width="4" height="14" fill="#5d7aa8" />
+            <rect x="51" y="86" width="4" height="14" fill="#5d7aa8" />
+            <!-- title overlay -->
+            <text x="50" y="22" text-anchor="middle"
+              font-family="Georgia, serif" font-size="11" font-weight="700"
+              fill="#3a2814">Lila</text>
+            <text x="50" y="34" text-anchor="middle"
+              font-family="Georgia, serif" font-size="8" font-weight="600"
+              fill="#3a2814">et la clé</text>
+            <text x="50" y="44" text-anchor="middle"
+              font-family="Georgia, serif" font-size="9" font-weight="700"
+              fill="#3a2814">du grenier</text>
+            <!-- sparkles -->
+            <circle cx="20" cy="30" r="1" fill="#fff" />
+            <circle cx="80" cy="40" r="1" fill="#fff" />
+            <circle cx="25" cy="60" r="1" fill="#fff" />
+            <circle cx="75" cy="70" r="1" fill="#fff" />
+            <!-- author at bottom -->
+            <text x="50" y="125" text-anchor="middle"
+              font-family="Georgia, serif" font-size="6" font-weight="600"
+              fill="#3a2814" letter-spacing="0.5">APOLLINE VERGER</text>
           </svg>
         </div>
         <div class="book-info">
-          <h3>Le livre HistoireDuDodo</h3>
-          <p>
-            Des histoires douces pour endormir ton enfant en héros de son
-            propre conte.
-          </p>
-          <span class="book-cta">
-            Découvrir sur Amazon
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </span>
+          <h3>Lila et la clé du grenier</h3>
+          <p class="book-sub">Une aventure à travers cinq mondes</p>
+          <p class="book-author">par Apolline Verger</p>
+          <div class="book-meta">
+            <span class="stars-rating" aria-label="Note 5 sur 5">
+              ★★★★★ <small>5,0</small>
+            </span>
+            <span class="dot">·</span>
+            <span class="age">6–8 ans</span>
+          </div>
+          <div class="book-price-row">
+            <span class="price">12,61 €</span>
+            <span class="book-cta">
+              Amazon
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
         </div>
       </a>
+
+      <!-- Five worlds teaser -->
+      <section class="worlds" aria-label="Les cinq mondes du livre">
+        <p class="worlds-intro">
+          Un grenier. Une vieille clé. <b>Cinq mondes à découvrir.</b>
+        </p>
+        <ul class="worlds-list">
+          <li><span aria-hidden="true">🌱</span> Un jardin minuscule</li>
+          <li><span aria-hidden="true">🐚</span> Une cité de corail</li>
+          <li><span aria-hidden="true">☁️</span> Un royaume de nuages</li>
+          <li><span aria-hidden="true">🦌</span> Une forêt nocturne</li>
+          <li><span aria-hidden="true">⏳</span> Une horlogerie infinie</li>
+        </ul>
+        <p class="worlds-quote">
+          « Les plus belles aventures commencent toujours par
+          <em>une porte qu'on n'avait pas vue.</em> »
+        </p>
+      </section>
 
       <div class="section-title">Tous les liens</div>
 
@@ -516,7 +672,7 @@
           target="_blank"
           rel="noopener"
         >
-          <span class="badge">★ Best-seller</span>
+          <span class="badge">✨ Nouveauté</span>
           <span class="icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -525,8 +681,8 @@
             </svg>
           </span>
           <span class="label">
-            📕 Commande le livre sur Amazon
-            <small>L'histoire du soir, version papier à offrir</small>
+            📕 Commander Lila et la clé du grenier
+            <small>Broché 12,61 € · livré par Amazon</small>
           </span>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
@@ -550,8 +706,8 @@
             </svg>
           </span>
           <span class="label">
-            🎁 Le cadeau parfait à offrir
-            <small>Idéal anniversaire, Noël, naissance</small>
+            🎁 Le cadeau parfait pour les 6–8 ans
+            <small>Anniversaire, Noël, fin d'année scolaire</small>
           </span>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
