@@ -17,7 +17,7 @@
       property="og:description"
       content="Ton enfant est le héros de son histoire du soir ✨ Découvre « Lila et la clé du grenier » sur Amazon."
     />
-    <meta property="og:image" content="assets/cover.svg" />
+    <meta property="og:image" content="assets/livre-lila.jpg" />
 
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -420,17 +420,16 @@
         perspective: 700px;
         flex-shrink: 0;
       }
+      /* The real book is square format, hence the near-square cover */
       .book-cover {
-        width: 92px;
-        height: 124px;
+        width: 108px;
+        height: 110px;
         border-radius: 6px 10px 10px 6px;
-        background: linear-gradient(150deg, #fff7e6, #f3e2c1 55%, #e2bf8d);
         box-shadow:
-          inset -10px 0 16px rgba(0, 0, 0, 0.12),
-          14px 14px 30px rgba(0, 0, 0, 0.45);
-        display: grid;
-        place-items: center;
+          14px 14px 30px rgba(0, 0, 0, 0.45),
+          0 0 24px rgba(255, 217, 138, 0.12);
         position: relative;
+        overflow: hidden;
         transform: rotateY(-16deg) rotateX(4deg);
         transform-style: preserve-3d;
         transition: transform 0.35s ease;
@@ -441,28 +440,25 @@
       .book-cover::before {
         content: "";
         position: absolute;
-        left: 7px;
+        left: 5px;
         top: 0;
         bottom: 0;
         width: 2px;
-        background: rgba(120, 80, 20, 0.25);
+        background: rgba(0, 0, 0, 0.18);
+        z-index: 1;
       }
-      .book-cover .title-strip {
+      .book-cover::after {
+        content: "";
         position: absolute;
-        bottom: 12px;
-        left: 14px;
-        right: 8px;
-        font-family: "Fraunces", Georgia, serif;
-        font-size: 9.5px;
-        font-weight: 700;
-        color: #5b4322;
-        text-align: center;
-        line-height: 1.2;
+        inset: 0;
+        box-shadow: inset -10px 0 16px rgba(0, 0, 0, 0.18);
+        pointer-events: none;
       }
-      .book-cover svg {
-        width: 62%;
-        height: 62%;
-        margin-top: -10px;
+      .book-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
 
       .book-info {
@@ -793,33 +789,20 @@
         target="_blank"
         rel="noopener"
       >
-        <div class="scene" aria-hidden="true">
+        <div class="scene">
           <div class="book-cover">
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="22" cy="46" rx="13" ry="17" fill="#9aa3c4" />
-              <ellipse cx="78" cy="46" rx="13" ry="17" fill="#9aa3c4" />
-              <ellipse cx="50" cy="50" rx="26" ry="24" fill="#b3bcdd" />
-              <path d="M30 38 Q36 18 58 16 Q72 15 70 25 L68 29 Q64 22 56 23 Q40 25 35 41 Z" fill="#e8a83a" />
-              <circle cx="71" cy="26" r="4" fill="#ffd98a" />
-              <path
-                d="M50 60 Q43 75 50 83 Q57 89 59 80"
-                stroke="#b3bcdd"
-                stroke-width="9"
-                fill="none"
-                stroke-linecap="round"
-              />
-              <path d="M37 47 q4.5 4.5 9 0" stroke="#1d2142" stroke-width="2.2" fill="none" stroke-linecap="round" />
-              <path d="M55 47 q4.5 4.5 9 0" stroke="#1d2142" stroke-width="2.2" fill="none" stroke-linecap="round" />
-            </svg>
-            <span class="title-strip">Lila et la clé<br />du grenier</span>
+            <img
+              src="assets/livre-lila.jpg"
+              alt="Couverture du livre Lila et la clé du grenier"
+              loading="lazy"
+            />
           </div>
         </div>
         <div class="book-info">
           <span class="eyebrow">★ Le livre</span>
           <h2>Lila et la clé du grenier</h2>
           <p>
-            Une histoire douce pour endormir ton enfant en héros de son
-            propre conte.
+            Une aventure à travers cinq mondes — par Apolline Verger.
           </p>
           <span class="book-cta">
             Découvrir sur Amazon
