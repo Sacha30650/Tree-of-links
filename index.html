@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#fbf3e8" />
+    <meta name="theme-color" content="#070b22" />
     <title>HistoireDuDodo — Tous les liens</title>
     <meta
       name="description"
@@ -23,24 +23,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
-        --cream: #fbf3e8;
-        --cream-2: #f4e6d2;
-        --ink: #2b2a26;
-        --muted: #6a6358;
-        --gold: #e8a83a;
-        --gold-deep: #c98a1f;
-        --rose: #e7b9b1;
-        --sage: #b9c9a8;
-        --card: #ffffff;
-        --shadow: 0 10px 30px rgba(60, 40, 10, 0.08),
-          0 2px 6px rgba(60, 40, 10, 0.04);
-        --radius: 18px;
+        --night-1: #070b22;
+        --night-2: #101736;
+        --night-3: #1b1f4b;
+        --ink: #f4ecdf;
+        --muted: #a8a8c8;
+        --gold: #ffd98a;
+        --gold-deep: #e8a83a;
+        --gold-glow: rgba(255, 217, 138, 0.45);
+        --rose: #f0b6c8;
+        --glass: rgba(255, 255, 255, 0.055);
+        --glass-strong: rgba(255, 255, 255, 0.09);
+        --stroke: rgba(255, 255, 255, 0.12);
+        --radius: 20px;
       }
 
       * {
@@ -51,7 +52,6 @@
       body {
         margin: 0;
         padding: 0;
-        background: var(--cream);
         color: var(--ink);
         font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto,
           sans-serif;
@@ -62,194 +62,537 @@
       body {
         min-height: 100dvh;
         background:
-          radial-gradient(
-            1200px 600px at 50% -200px,
-            #fff7ec 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            800px 500px at 100% 110%,
-            #f6e2d2 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            900px 600px at 0% 100%,
-            #eef0e2 0%,
-            transparent 60%
-          ),
-          var(--cream);
+          radial-gradient(1100px 700px at 80% -10%, #2c2a6b 0%, transparent 55%),
+          radial-gradient(900px 600px at -10% 30%, #251b52 0%, transparent 55%),
+          radial-gradient(1000px 800px at 50% 115%, #14275a 0%, transparent 60%),
+          linear-gradient(180deg, var(--night-1) 0%, var(--night-2) 50%, var(--night-3) 100%);
+        background-attachment: fixed;
+        overflow-x: hidden;
       }
 
-      .stars {
+      /* ---------- Night sky ---------- */
+      .sky {
         position: fixed;
         inset: 0;
-        pointer-events: none;
-        opacity: 0.5;
         z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
       }
-      .stars span {
+
+      .star {
         position: absolute;
-        width: 6px;
-        height: 6px;
-        background: radial-gradient(
-          circle,
-          rgba(232, 168, 58, 0.9) 0%,
-          rgba(232, 168, 58, 0) 70%
-        );
         border-radius: 50%;
-        animation: twinkle 4s infinite ease-in-out;
+        background: #fff;
+        box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.5);
+        animation: twinkle var(--d, 4s) infinite ease-in-out;
+        animation-delay: var(--t, 0s);
+        opacity: 0.7;
       }
-      .stars span:nth-child(1) { top: 8%; left: 12%; animation-delay: 0s; }
-      .stars span:nth-child(2) { top: 14%; right: 10%; animation-delay: 0.6s; width: 4px; height: 4px; }
-      .stars span:nth-child(3) { top: 30%; left: 6%; animation-delay: 1.2s; width: 5px; height: 5px; }
-      .stars span:nth-child(4) { top: 70%; right: 8%; animation-delay: 1.8s; }
-      .stars span:nth-child(5) { bottom: 12%; left: 14%; animation-delay: 2.4s; width: 4px; height: 4px; }
-      .stars span:nth-child(6) { top: 50%; right: 16%; animation-delay: 3s; width: 3px; height: 3px; }
 
       @keyframes twinkle {
-        0%, 100% { opacity: 0.2; transform: scale(0.8); }
-        50% { opacity: 1; transform: scale(1.1); }
+        0%, 100% { opacity: 0.15; transform: scale(0.7); }
+        50% { opacity: 0.9; transform: scale(1.15); }
       }
 
+      .shooting {
+        position: absolute;
+        top: 12%;
+        left: -10%;
+        width: 130px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #fff, transparent);
+        border-radius: 999px;
+        transform: rotate(18deg);
+        opacity: 0;
+        animation: shoot 9s infinite ease-in;
+        animation-delay: 3s;
+        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+      }
+      .shooting.s2 {
+        top: 45%;
+        animation-delay: 7.5s;
+        animation-duration: 11s;
+        width: 90px;
+      }
+
+      @keyframes shoot {
+        0% { opacity: 0; transform: translateX(0) translateY(0) rotate(18deg); }
+        4% { opacity: 1; }
+        9% { opacity: 0; transform: translateX(70vw) translateY(24vh) rotate(18deg); }
+        100% { opacity: 0; transform: translateX(70vw) translateY(24vh) rotate(18deg); }
+      }
+
+      /* The moon scrolls with the page (not fixed like the stars) so it
+         never overlaps the cards once the user scrolls down. */
+      .moon {
+        position: absolute;
+        z-index: 0;
+        pointer-events: none;
+        top: 42px;
+        right: clamp(14px, 8vw, 90px);
+        width: 74px;
+        height: 74px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 35% 32%, #fffbe9, #ffe9b3 55%, #f3cd7c);
+        box-shadow:
+          0 0 28px 6px rgba(255, 226, 150, 0.45),
+          0 0 90px 30px rgba(255, 226, 150, 0.14);
+        animation: float-moon 7s infinite ease-in-out;
+      }
+      .moon::before,
+      .moon::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(214, 164, 80, 0.28);
+      }
+      .moon::before { width: 14px; height: 14px; top: 22px; left: 16px; }
+      .moon::after { width: 9px; height: 9px; top: 44px; left: 38px; }
+
+      @keyframes float-moon {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-9px); }
+      }
+
+      .cloud {
+        position: absolute;
+        width: 220px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 999px;
+        filter: blur(14px);
+        animation: drift 38s linear infinite;
+      }
+      .cloud.c1 { top: 16%; animation-duration: 46s; }
+      .cloud.c2 { top: 58%; width: 300px; animation-duration: 60s; animation-delay: -25s; }
+      .cloud.c3 { top: 82%; width: 180px; animation-duration: 40s; animation-delay: -12s; }
+
+      @keyframes drift {
+        from { transform: translateX(-30vw); }
+        to { transform: translateX(130vw); }
+      }
+
+      .firefly {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 10px 2px var(--gold-glow);
+        animation: fly var(--d, 14s) infinite ease-in-out alternate;
+        animation-delay: var(--t, 0s);
+        opacity: 0.8;
+      }
+
+      @keyframes fly {
+        0% { transform: translate(0, 0); opacity: 0.2; }
+        25% { opacity: 0.9; }
+        50% { transform: translate(40px, -55px); opacity: 0.4; }
+        75% { opacity: 0.9; }
+        100% { transform: translate(-30px, -110px); opacity: 0.1; }
+      }
+
+      /* ---------- Layout ---------- */
       .wrap {
         position: relative;
         z-index: 1;
-        max-width: 460px;
+        max-width: 480px;
         margin: 0 auto;
-        padding: 36px 20px 60px;
+        padding: 52px 20px 64px;
       }
 
+      .rise {
+        opacity: 0;
+        animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .rise.d1 { animation-delay: 0.08s; }
+      .rise.d2 { animation-delay: 0.18s; }
+      .rise.d3 { animation-delay: 0.28s; }
+      .rise.d4 { animation-delay: 0.38s; }
+      .rise.d5 { animation-delay: 0.48s; }
+      .rise.d6 { animation-delay: 0.58s; }
+      .rise.d7 { animation-delay: 0.68s; }
+
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(22px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Elements with their own looping animation must combine it with the
+         entrance animation, otherwise their rule overrides .rise and they
+         stay at opacity 0. */
+      .avatar-ring.rise {
+        animation:
+          rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards,
+          spin-ring 6s linear infinite;
+      }
+      .name.rise {
+        animation:
+          rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.18s forwards,
+          shine-text 5s linear infinite;
+      }
+      .link.primary.rise {
+        animation:
+          rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.48s forwards,
+          pulse-glow 3s 1.3s infinite ease-in-out;
+      }
+
+      /* ---------- Header ---------- */
       header {
         text-align: center;
       }
 
-      .avatar {
-        width: 112px;
-        height: 112px;
+      .avatar-ring {
+        position: relative;
+        width: 128px;
+        height: 128px;
+        margin: 0 auto 16px;
         border-radius: 50%;
-        background:
-          radial-gradient(circle at 30% 30%, #fff, #f3e7d3 70%, #e7d4b6);
-        margin: 0 auto 14px;
+        padding: 4px;
+        background: conic-gradient(
+          from var(--spin, 0deg),
+          var(--gold),
+          var(--rose),
+          #8ea7ff,
+          var(--gold)
+        );
+        animation: spin-ring 6s linear infinite;
+        box-shadow: 0 0 34px 4px rgba(255, 217, 138, 0.22);
+      }
+
+      @property --spin {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+
+      @keyframes spin-ring {
+        to { --spin: 360deg; }
+      }
+
+      .avatar {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: radial-gradient(circle at 32% 28%, #2c2f63, #161a3e 75%);
         display: grid;
         place-items: center;
-        box-shadow: var(--shadow);
-        border: 3px solid #fff;
-        position: relative;
         overflow: hidden;
       }
       .avatar svg {
-        width: 88%;
-        height: 88%;
+        width: 86%;
+        height: 86%;
       }
 
       .name {
         font-family: "Fraunces", Georgia, serif;
         font-weight: 600;
-        font-size: 26px;
-        margin: 6px 0 2px;
+        font-size: 30px;
+        margin: 4px 0 4px;
         letter-spacing: -0.01em;
         display: inline-flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
+        background: linear-gradient(105deg, #fff6e3 30%, var(--gold) 50%, #fff6e3 70%);
+        background-size: 220% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shine-text 5s linear infinite;
       }
+
+      @keyframes shine-text {
+        to { background-position: -220% center; }
+      }
+
       .verified {
-        display: inline-block;
-        width: 18px;
-        height: 18px;
-        background: var(--gold);
-        color: #fff;
+        display: inline-grid;
+        place-items: center;
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+        color: #241a05;
         border-radius: 50%;
-        font-size: 11px;
-        line-height: 18px;
-        text-align: center;
-        font-weight: 700;
+        font-size: 12px;
+        font-weight: 800;
         font-family: "Nunito", sans-serif;
+        -webkit-text-fill-color: #241a05;
+        flex-shrink: 0;
       }
+
       .handle {
         color: var(--muted);
         font-size: 14px;
         margin-bottom: 14px;
+        letter-spacing: 0.02em;
       }
+
       .bio {
-        font-size: 15.5px;
-        line-height: 1.5;
-        color: var(--ink);
-        max-width: 360px;
-        margin: 0 auto 6px;
-      }
-      .bio .sparkle {
-        color: var(--gold-deep);
+        font-size: 16px;
+        line-height: 1.55;
+        max-width: 340px;
+        margin: 0 auto 8px;
+        color: #ded8ea;
       }
 
       .stats {
         display: inline-flex;
-        gap: 18px;
-        margin: 14px auto 22px;
-        padding: 10px 16px;
-        background: rgba(255, 255, 255, 0.6);
-        backdrop-filter: blur(6px);
+        gap: 0;
+        margin: 16px auto 30px;
+        background: var(--glass);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         border-radius: 999px;
-        border: 1px solid rgba(201, 138, 31, 0.15);
+        border: 1px solid var(--stroke);
         font-size: 13px;
         color: var(--muted);
+        overflow: hidden;
+      }
+      .stats span {
+        padding: 10px 18px;
+      }
+      .stats span + span {
+        border-left: 1px solid var(--stroke);
       }
       .stats b {
-        color: var(--ink);
+        color: var(--gold);
+        font-weight: 800;
+        font-size: 14px;
+        display: block;
+      }
+
+      /* ---------- Featured book ---------- */
+      .book {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        padding: 20px;
+        margin: 0 0 26px;
+        background: linear-gradient(
+          140deg,
+          rgba(255, 217, 138, 0.13),
+          rgba(255, 255, 255, 0.04) 55%
+        );
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 217, 138, 0.3);
+        border-radius: 24px;
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+      }
+      .book:hover,
+      .book:focus-visible {
+        transform: translateY(-4px);
+        border-color: rgba(255, 217, 138, 0.6);
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.45),
+          0 0 40px rgba(255, 217, 138, 0.12);
+        outline: none;
+      }
+      .book::after {
+        content: "";
+        position: absolute;
+        top: -60%;
+        left: -80%;
+        width: 60%;
+        height: 220%;
+        background: linear-gradient(
+          105deg,
+          transparent,
+          rgba(255, 255, 255, 0.14),
+          transparent
+        );
+        transform: rotate(18deg);
+        animation: sweep 5.5s infinite ease-in-out;
+        pointer-events: none;
+      }
+
+      @keyframes sweep {
+        0%, 55% { left: -80%; }
+        85%, 100% { left: 160%; }
+      }
+
+      .scene {
+        perspective: 700px;
+        flex-shrink: 0;
+      }
+      .book-cover {
+        width: 92px;
+        height: 124px;
+        border-radius: 6px 10px 10px 6px;
+        background: linear-gradient(150deg, #fff7e6, #f3e2c1 55%, #e2bf8d);
+        box-shadow:
+          inset -10px 0 16px rgba(0, 0, 0, 0.12),
+          14px 14px 30px rgba(0, 0, 0, 0.45);
+        display: grid;
+        place-items: center;
+        position: relative;
+        transform: rotateY(-16deg) rotateX(4deg);
+        transform-style: preserve-3d;
+        transition: transform 0.35s ease;
+      }
+      .book:hover .book-cover {
+        transform: rotateY(-6deg) rotateX(2deg) scale(1.04);
+      }
+      .book-cover::before {
+        content: "";
+        position: absolute;
+        left: 7px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(120, 80, 20, 0.25);
+      }
+      .book-cover .title-strip {
+        position: absolute;
+        bottom: 12px;
+        left: 14px;
+        right: 8px;
+        font-family: "Fraunces", Georgia, serif;
+        font-size: 9.5px;
         font-weight: 700;
+        color: #5b4322;
+        text-align: center;
+        line-height: 1.2;
+      }
+      .book-cover svg {
+        width: 62%;
+        height: 62%;
+        margin-top: -10px;
+      }
+
+      .book-info {
+        position: relative;
+        z-index: 1;
+      }
+      .book-info .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 10.5px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 6px;
+      }
+      .book-info h2 {
+        font-family: "Fraunces", Georgia, serif;
+        font-weight: 600;
+        margin: 0 0 6px;
+        font-size: 19px;
+        line-height: 1.25;
+        color: #fff6e3;
+      }
+      .book-info p {
+        margin: 0 0 12px;
+        font-size: 13.5px;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+      .book-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+        color: #2a1d05;
+        font-size: 13.5px;
+        font-weight: 800;
+        padding: 10px 16px;
+        border-radius: 999px;
+        box-shadow: 0 6px 18px rgba(232, 168, 58, 0.35);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .book:hover .book-cta {
+        transform: translateX(2px);
+        box-shadow: 0 8px 24px rgba(232, 168, 58, 0.5);
+      }
+
+      /* ---------- Links ---------- */
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--muted);
+        margin: 0 2px 14px;
+        font-weight: 800;
+      }
+      .section-title::before,
+      .section-title::after {
+        content: "";
+        height: 1px;
+        flex: 1;
+        background: linear-gradient(90deg, transparent, var(--stroke), transparent);
       }
 
       .links {
         display: flex;
         flex-direction: column;
-        gap: 12px;
-        margin-top: 6px;
+        gap: 14px;
       }
 
       .link {
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 15px;
         padding: 16px 18px;
-        background: var(--card);
+        background: var(--glass);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
         color: var(--ink);
         text-decoration: none;
         border-radius: var(--radius);
-        box-shadow: var(--shadow);
-        border: 1px solid rgba(60, 40, 10, 0.04);
-        transition: transform 0.15s ease, box-shadow 0.15s ease,
-          background 0.15s ease;
+        border: 1px solid var(--stroke);
+        transition: transform 0.22s ease, box-shadow 0.22s ease,
+          border-color 0.22s ease, background 0.22s ease;
         position: relative;
         overflow: hidden;
       }
       .link:hover,
       .link:focus-visible {
-        transform: translateY(-2px);
-        box-shadow: 0 14px 34px rgba(60, 40, 10, 0.12),
-          0 4px 10px rgba(60, 40, 10, 0.05);
+        transform: translateY(-3px) scale(1.012);
+        background: var(--glass-strong);
+        border-color: rgba(255, 217, 138, 0.4);
+        box-shadow:
+          0 14px 36px rgba(0, 0, 0, 0.4),
+          0 0 24px rgba(255, 217, 138, 0.08);
         outline: none;
       }
       .link:active {
-        transform: translateY(0);
+        transform: translateY(-1px) scale(1);
       }
 
       .link .icon {
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
         flex-shrink: 0;
-        border-radius: 12px;
+        border-radius: 14px;
         display: grid;
         place-items: center;
-        background: var(--cream-2);
-        color: var(--gold-deep);
+        background: rgba(255, 217, 138, 0.12);
+        border: 1px solid rgba(255, 217, 138, 0.22);
+        color: var(--gold);
+        transition: transform 0.22s ease;
+      }
+      .link:hover .icon {
+        transform: scale(1.08) rotate(-4deg);
       }
       .link .icon svg {
         width: 22px;
         height: 22px;
       }
+
       .link .label {
-        font-weight: 700;
+        font-weight: 800;
         font-size: 15.5px;
-        line-height: 1.25;
+        line-height: 1.3;
         flex: 1;
       }
       .link .label small {
@@ -257,203 +600,187 @@
         font-weight: 400;
         font-size: 12.5px;
         color: var(--muted);
-        margin-top: 2px;
+        margin-top: 3px;
       }
+
       .link .chev {
         color: var(--muted);
         opacity: 0.6;
         flex-shrink: 0;
+        transition: transform 0.22s ease, opacity 0.22s ease, color 0.22s ease;
+      }
+      .link:hover .chev {
+        transform: translateX(4px);
+        opacity: 1;
+        color: var(--gold);
       }
 
-      /* Primary highlighted link (book) */
+      /* Primary link (book) */
       .link.primary {
-        background: linear-gradient(135deg, #fff5dc 0%, #ffd98a 100%);
-        border: 1px solid rgba(201, 138, 31, 0.3);
+        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+        border: none;
+        color: #2a1d05;
+        box-shadow:
+          0 10px 30px rgba(232, 168, 58, 0.35),
+          0 0 0 0 rgba(255, 217, 138, 0.5);
+      }
+
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 10px 30px rgba(232, 168, 58, 0.3), 0 0 0 0 rgba(255, 217, 138, 0.35); }
+        50% { box-shadow: 0 10px 36px rgba(232, 168, 58, 0.5), 0 0 0 7px rgba(255, 217, 138, 0); }
+      }
+
+      .link.primary:hover {
+        border: none;
+        box-shadow:
+          0 16px 42px rgba(232, 168, 58, 0.55),
+          0 0 0 0 rgba(255, 217, 138, 0);
       }
       .link.primary .icon {
-        background: var(--gold);
-        color: #fff;
+        background: rgba(42, 29, 5, 0.14);
+        border-color: rgba(42, 29, 5, 0.18);
+        color: #2a1d05;
+      }
+      .link.primary .label small {
+        color: rgba(42, 29, 5, 0.65);
+      }
+      .link.primary .chev {
+        color: rgba(42, 29, 5, 0.55);
+      }
+      .link.primary:hover .chev {
+        color: #2a1d05;
       }
       .link.primary .badge {
         position: absolute;
-        top: 10px;
-        right: 14px;
-        background: var(--ink);
-        color: #fff;
-        font-size: 10.5px;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        padding: 3px 8px;
-        border-radius: 999px;
+        top: -1px;
+        right: 16px;
+        background: #181230;
+        color: var(--gold);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        padding: 4px 10px 5px;
+        border-radius: 0 0 9px 9px;
         text-transform: uppercase;
       }
-      .link.primary .label small {
-        color: #5b4a26;
-      }
-
-      /* Featured book card */
-      .book {
-        margin: 20px 0 8px;
-        background: var(--card);
-        border-radius: 22px;
-        padding: 18px;
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        box-shadow: var(--shadow);
-        border: 1px solid rgba(60, 40, 10, 0.04);
-        text-decoration: none;
-        color: inherit;
-        position: relative;
-        overflow: hidden;
-      }
-      .book::after {
+      .link.primary::after {
         content: "";
         position: absolute;
-        inset: 0;
+        top: -60%;
+        left: -80%;
+        width: 50%;
+        height: 220%;
         background: linear-gradient(
-          135deg,
-          rgba(255, 217, 138, 0.15),
-          transparent 50%
+          105deg,
+          transparent,
+          rgba(255, 255, 255, 0.35),
+          transparent
         );
+        transform: rotate(18deg);
+        animation: sweep 4.5s infinite ease-in-out;
+        animation-delay: 1.2s;
         pointer-events: none;
       }
-      .book-cover {
-        width: 86px;
-        height: 116px;
-        flex-shrink: 0;
-        border-radius: 8px;
-        background:
-          linear-gradient(160deg, #fff7e6, #f3e2c1 60%, #e7caa0);
-        box-shadow:
-          inset -8px 0 14px rgba(0, 0, 0, 0.06),
-          0 6px 14px rgba(60, 40, 10, 0.18);
-        display: grid;
-        place-items: center;
-        position: relative;
-        overflow: hidden;
-      }
-      .book-cover::before {
-        content: "";
-        position: absolute;
-        left: 6px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: rgba(0, 0, 0, 0.08);
-      }
-      .book-cover svg {
-        width: 70%;
-        height: 70%;
-      }
-      .book-info h3 {
-        font-family: "Fraunces", Georgia, serif;
-        font-weight: 600;
-        margin: 0 0 4px;
-        font-size: 17px;
-        line-height: 1.2;
-      }
-      .book-info p {
-        margin: 0 0 10px;
-        font-size: 13px;
-        color: var(--muted);
-        line-height: 1.35;
-      }
-      .book-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        background: var(--ink);
-        color: #fff;
-        font-size: 13px;
-        font-weight: 700;
-        padding: 8px 12px;
-        border-radius: 999px;
-        text-decoration: none;
-      }
 
-      .section-title {
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--muted);
-        margin: 22px 4px 10px;
-        font-weight: 700;
-      }
-
+      /* ---------- Footer ---------- */
       footer {
         text-align: center;
-        margin-top: 28px;
-        font-size: 12px;
+        margin-top: 36px;
+        font-size: 12.5px;
         color: var(--muted);
       }
-      footer a {
-        color: var(--gold-deep);
-        text-decoration: none;
-        font-weight: 700;
+      footer .zzz {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 8px;
+        letter-spacing: 4px;
+        color: var(--gold);
+        opacity: 0.8;
+        animation: float-moon 4s infinite ease-in-out;
       }
 
+      /* ---------- Reduced motion ---------- */
       @media (prefers-reduced-motion: reduce) {
-        .stars span {
-          animation: none;
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
         }
-        .link {
-          transition: none;
+        .rise {
+          opacity: 1;
         }
       }
     </style>
   </head>
   <body>
-    <div class="stars" aria-hidden="true">
-      <span></span><span></span><span></span>
-      <span></span><span></span><span></span>
+    <!-- Night sky decor -->
+    <div class="moon" aria-hidden="true"></div>
+    <div class="sky" aria-hidden="true">
+      <div class="cloud c1"></div>
+      <div class="cloud c2"></div>
+      <div class="cloud c3"></div>
+      <div class="shooting"></div>
+      <div class="shooting s2"></div>
+      <div class="firefly" style="left: 12%; top: 70%; --d: 13s; --t: 0s"></div>
+      <div class="firefly" style="left: 80%; top: 60%; --d: 17s; --t: 3s"></div>
+      <div class="firefly" style="left: 30%; top: 88%; --d: 15s; --t: 6s"></div>
+      <div class="firefly" style="left: 65%; top: 82%; --d: 19s; --t: 1.5s"></div>
     </div>
 
     <main class="wrap">
       <header>
-        <div class="avatar" aria-hidden="true">
-          <!-- Elephant mascot SVG -->
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- ears -->
-            <ellipse cx="22" cy="46" rx="14" ry="18" fill="#b8b0a3" />
-            <ellipse cx="78" cy="46" rx="14" ry="18" fill="#b8b0a3" />
-            <ellipse cx="22" cy="46" rx="9" ry="13" fill="#e7b9b1" opacity=".7" />
-            <ellipse cx="78" cy="46" rx="9" ry="13" fill="#e7b9b1" opacity=".7" />
-            <!-- head -->
-            <ellipse cx="50" cy="50" rx="28" ry="26" fill="#c9c2b5" />
-            <!-- trunk -->
-            <path
-              d="M50 62 Q42 78 50 86 Q58 92 60 82"
-              stroke="#c9c2b5"
-              stroke-width="10"
-              fill="none"
-              stroke-linecap="round"
-            />
-            <!-- scarf -->
-            <path d="M28 70 Q50 80 72 70 L72 76 Q50 86 28 76 Z" fill="#e8a83a" />
-            <!-- eyes -->
-            <circle cx="40" cy="48" r="2.5" fill="#2b2a26" />
-            <circle cx="60" cy="48" r="2.5" fill="#2b2a26" />
-            <!-- cheeks -->
-            <circle cx="36" cy="56" r="3" fill="#e7b9b1" opacity=".6" />
-            <circle cx="64" cy="56" r="3" fill="#e7b9b1" opacity=".6" />
-            <!-- heart -->
-            <path
-              d="M70 58 a3 3 0 0 1 6 0 a3 3 0 0 1 6 0 c0 4 -6 8 -6 8 s-6 -4 -6 -8z"
-              fill="#e7686e"
-            />
-          </svg>
+        <div class="avatar-ring rise d1">
+          <div class="avatar" aria-hidden="true">
+            <!-- Sleeping elephant mascot -->
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- little stars -->
+              <path d="M18 20 l1.6 3.4 3.4 1.6 -3.4 1.6 -1.6 3.4 -1.6 -3.4 -3.4 -1.6 3.4 -1.6z" fill="#ffd98a" opacity=".85" />
+              <path d="M82 16 l1.2 2.6 2.6 1.2 -2.6 1.2 -1.2 2.6 -1.2 -2.6 -2.6 -1.2 2.6 -1.2z" fill="#ffd98a" opacity=".6" />
+              <!-- ears -->
+              <ellipse cx="22" cy="50" rx="14" ry="18" fill="#9aa3c4" />
+              <ellipse cx="78" cy="50" rx="14" ry="18" fill="#9aa3c4" />
+              <ellipse cx="22" cy="50" rx="9" ry="13" fill="#f0b6c8" opacity=".55" />
+              <ellipse cx="78" cy="50" rx="9" ry="13" fill="#f0b6c8" opacity=".55" />
+              <!-- head -->
+              <ellipse cx="50" cy="54" rx="28" ry="26" fill="#b3bcdd" />
+              <!-- night cap -->
+              <path d="M28 40 Q34 18 58 16 Q74 15 72 26 L70 30 Q66 22 56 23 Q38 25 33 43 Z" fill="#e8a83a" />
+              <circle cx="73" cy="27" r="4.5" fill="#ffd98a" />
+              <!-- trunk -->
+              <path
+                d="M50 66 Q42 82 50 90 Q58 96 60 86"
+                stroke="#b3bcdd"
+                stroke-width="10"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <!-- closed sleepy eyes -->
+              <path d="M35 52 q5 5 10 0" stroke="#1d2142" stroke-width="2.4" fill="none" stroke-linecap="round" />
+              <path d="M55 52 q5 5 10 0" stroke="#1d2142" stroke-width="2.4" fill="none" stroke-linecap="round" />
+              <!-- cheeks -->
+              <circle cx="33" cy="60" r="3.4" fill="#f0b6c8" opacity=".65" />
+              <circle cx="67" cy="60" r="3.4" fill="#f0b6c8" opacity=".65" />
+              <!-- zzz -->
+              <g fill="#ffd98a" font-family="Nunito, sans-serif" font-weight="800">
+                <text x="76" y="44" font-size="9">z</text>
+                <text x="83" y="37" font-size="7" opacity=".75">z</text>
+                <text x="89" y="31" font-size="5" opacity=".5">z</text>
+              </g>
+            </svg>
+          </div>
         </div>
-        <h1 class="name">
+
+        <h1 class="name rise d2">
           HistoireDuDodo <span class="verified" title="Compte vérifié">✓</span>
         </h1>
-        <div class="handle">@histoiredudodo</div>
-        <p class="bio">
-          Ton enfant est le héros de son histoire du soir
-          <span class="sparkle">✨</span><br />
+        <div class="handle rise d2">@histoiredudodo</div>
+        <p class="bio rise d3">
+          Ton enfant est le héros de son histoire du soir ✨<br />
           Découvre le livre 👇
         </p>
-        <div class="stats" aria-label="Statistiques TikTok">
+
+        <div class="stats rise d3" aria-label="Statistiques TikTok">
           <span><b>27,7 K</b> Followers</span>
           <span><b>183 K</b> J'aime</span>
         </div>
@@ -461,29 +788,35 @@
 
       <!-- Featured book -->
       <a
-        class="book"
+        class="book rise d4"
         href="https://amzn.eu/d/06Nj7w1y"
         target="_blank"
         rel="noopener"
       >
-        <div class="book-cover" aria-hidden="true">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="22" cy="46" rx="14" ry="18" fill="#b8b0a3" />
-            <ellipse cx="78" cy="46" rx="14" ry="18" fill="#b8b0a3" />
-            <ellipse cx="50" cy="50" rx="28" ry="26" fill="#c9c2b5" />
-            <path
-              d="M50 62 Q42 78 50 86 Q58 92 60 82"
-              stroke="#c9c2b5"
-              stroke-width="10"
-              fill="none"
-              stroke-linecap="round"
-            />
-            <circle cx="40" cy="48" r="2.5" fill="#2b2a26" />
-            <circle cx="60" cy="48" r="2.5" fill="#2b2a26" />
-          </svg>
+        <div class="scene" aria-hidden="true">
+          <div class="book-cover">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="22" cy="46" rx="13" ry="17" fill="#9aa3c4" />
+              <ellipse cx="78" cy="46" rx="13" ry="17" fill="#9aa3c4" />
+              <ellipse cx="50" cy="50" rx="26" ry="24" fill="#b3bcdd" />
+              <path d="M30 38 Q36 18 58 16 Q72 15 70 25 L68 29 Q64 22 56 23 Q40 25 35 41 Z" fill="#e8a83a" />
+              <circle cx="71" cy="26" r="4" fill="#ffd98a" />
+              <path
+                d="M50 60 Q43 75 50 83 Q57 89 59 80"
+                stroke="#b3bcdd"
+                stroke-width="9"
+                fill="none"
+                stroke-linecap="round"
+              />
+              <path d="M37 47 q4.5 4.5 9 0" stroke="#1d2142" stroke-width="2.2" fill="none" stroke-linecap="round" />
+              <path d="M55 47 q4.5 4.5 9 0" stroke="#1d2142" stroke-width="2.2" fill="none" stroke-linecap="round" />
+            </svg>
+            <span class="title-strip">Histoire<br />du Dodo</span>
+          </div>
         </div>
         <div class="book-info">
-          <h3>Le livre HistoireDuDodo</h3>
+          <span class="eyebrow">★ Le livre</span>
+          <h2>Le livre HistoireDuDodo</h2>
           <p>
             Des histoires douces pour endormir ton enfant en héros de son
             propre conte.
@@ -507,11 +840,11 @@
         </div>
       </a>
 
-      <div class="section-title">Tous les liens</div>
+      <div class="section-title rise d5">Tous les liens</div>
 
       <nav class="links" aria-label="Liens utiles">
         <a
-          class="link primary"
+          class="link primary rise d5"
           href="https://amzn.eu/d/06Nj7w1y"
           target="_blank"
           rel="noopener"
@@ -525,7 +858,7 @@
             </svg>
           </span>
           <span class="label">
-            📕 Commande le livre sur Amazon
+            Commande le livre sur Amazon
             <small>L'histoire du soir, version papier à offrir</small>
           </span>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -536,7 +869,7 @@
         </a>
 
         <a
-          class="link"
+          class="link rise d6"
           href="https://amzn.eu/d/06Nj7w1y"
           target="_blank"
           rel="noopener"
@@ -550,7 +883,7 @@
             </svg>
           </span>
           <span class="label">
-            🎁 Le cadeau parfait à offrir
+            Le cadeau parfait à offrir
             <small>Idéal anniversaire, Noël, naissance</small>
           </span>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -561,7 +894,7 @@
         </a>
 
         <a
-          class="link"
+          class="link rise d7"
           href="https://www.tiktok.com/@histoiredudodo"
           target="_blank"
           rel="noopener"
@@ -572,7 +905,7 @@
             </svg>
           </span>
           <span class="label">
-            🎵 Suis-moi sur TikTok
+            Suis-moi sur TikTok
             <small>@histoiredudodo · 27,7K followers</small>
           </span>
           <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -583,9 +916,31 @@
         </a>
       </nav>
 
-      <footer>
-        Fait avec 🤎 pour les parents — &copy; HistoireDuDodo
+      <footer class="rise d7">
+        <span class="zzz" aria-hidden="true">z z z</span>
+        Fait avec 🤍 pour les parents — &copy; HistoireDuDodo
       </footer>
     </main>
+
+    <script>
+      // Generated star field
+      (function () {
+        var sky = document.querySelector(".sky");
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        for (var i = 0; i < 90; i++) {
+          var s = document.createElement("span");
+          s.className = "star";
+          var size = Math.random() * 2.2 + 0.8;
+          s.style.width = size + "px";
+          s.style.height = size + "px";
+          s.style.left = Math.random() * 100 + "%";
+          s.style.top = Math.random() * 100 + "%";
+          s.style.setProperty("--d", (Math.random() * 4 + 2.5).toFixed(2) + "s");
+          s.style.setProperty("--t", (Math.random() * 5).toFixed(2) + "s");
+          if (reduced) s.style.animation = "none";
+          sky.appendChild(s);
+        }
+      })();
+    </script>
   </body>
 </html>
