@@ -1,6 +1,0 @@
-{
-  "name": "arena",
-  "version": "1.0.0",
-  "description": "Arena : confronte une idée, un problème ou un axe de réflexion à 100 agents (10 familles x 10 personas), en 3 rounds, avec synthèse finale.",
-  "author": { "name": "Sacha" }
-}

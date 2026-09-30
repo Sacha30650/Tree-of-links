@@ -1,6 +1,0 @@
-{
-  "extraKnownMarketplaces": {
-    "tree-of-links-think-tank": { "source": { "source": "directory", "path": "." } }
-  },
-  "enabledPlugins": { "arena@tree-of-links-think-tank": true }
-}

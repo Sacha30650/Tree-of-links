@@ -1,27 +1,22 @@
 # <Titre du sujet>
 
 - **Date** : AAAA-MM-JJ
-- **Question soumise** : …
-- **Contexte** : …
-- **Agents ayant répondu** : N / 100
+- **Tâche soumise** : (texte exact de `.arena/<run>/task.md`)
+- **Run** : `.arena/<run>/` · seed … · N agents · R rounds
 
-## Verdict global
-| | POUR | CONTRE | NUANCÉ | Conviction moyenne |
-|---|---|---|---|---|
-| Round 1 | | | | |
-| Round 2 | | | | |
+## Réponse championne
+(la solution gagnante, en entier)
 
-## Par famille
-| Famille | POUR | CONTRE | NUANCÉ | Note |
-|---|---|---|---|---|
+## Pourquoi elle a gagné
+- **Carte** : mode de raisonnement + workflow + stratégie
+- **Attaques survécues** :
+  -
 
-## Meilleurs arguments POUR
-1.
-## Meilleurs arguments CONTRE
-1.
-## Clivages principaux
-## Angles morts et minorités
-## Changements d'avis (round 1 → 2)
-## Recommandation de Claude
-(distincte de l'avis des agents)
-## Prochaines actions
+## Parcours
+| Round | Adversaire battu | Score | Raison du juge |
+|---|---|---|---|
+
+## Contre la réponse rejetée (si il y en avait une)
+Scores du contrôle final, tels quels, même si l'ancienne réponse gagne.
+
+## Décision et prochaines actions
